@@ -1,0 +1,15 @@
+shiny 
+shinyswatch 
+pandas 
+openpyxl 
+jinja2 
+matplotlib 
+seaborn 
+plotnine
+shinywidgets 
+plotly 
+holoviews 
+panel 
+hvplot 
+ipyleaflet
+jupyter_bokeh 
