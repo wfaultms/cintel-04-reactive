@@ -36,7 +36,7 @@ def get_relationships_server_functions(input, output, session):
     @render_widget
     def relationships_output_widget1():
         if input.RELATIONSHIPS_SHOW_TOGGLE():
-            #logger.info("UI inputs changed. Updating relationships output widget2")
+            # logger.info("UI inputs changed. Updating relationships output widget2")
 
             # create a chord diagram from the links and the nodes
             # value = (5, None) only links with a value 5+ will be shown

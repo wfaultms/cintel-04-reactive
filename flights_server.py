@@ -28,7 +28,7 @@ def get_flights_server_functions(input, output, session):
     """Define functions to create UI outputs."""
 
     p = pathlib.Path(__file__).parent.joinpath("data").joinpath("flights.xlsx")
-    #logger.info(f"Reading data from {p}")
+    # logger.info(f"Reading data from {p}")
     original_df = pd.read_excel(p)
 
     # create new field with year as a string and month together
@@ -45,7 +45,7 @@ def get_flights_server_functions(input, output, session):
         """Reactive effect to update the filtered dataframe when inputs change.
         It doesn't need a name, because no one calls it directly."""
 
-        #logger.info("UI inputs changed. Updating flights reactive df")
+        # logger.info("UI inputs changed. Updating flights reactive df")
 
         df = original_df.copy()
 
@@ -72,10 +72,10 @@ def get_flights_server_functions(input, output, session):
     @output
     @render.text
     def flights_record_count_string():
-        #logger.debug("Triggered: flights_filter_record_count_string")
+        # logger.debug("Triggered: flights_filter_record_count_string")
         filtered_count = len(reactive_df.get())
         message = f"Showing {filtered_count} of {total_count} records"
-        #logger.debug(f"filter message: {message}")
+        # logger.debug(f"filter message: {message}")
         return message
 
     @output

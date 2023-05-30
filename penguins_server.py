@@ -23,8 +23,8 @@ logger, logname = setup_logger(__name__)
 def get_penguins_server_functions(input, output, session):
     """Define functions to create UI outputs."""
 
-    p = (pathlib.Path(__file__).parent.joinpath("data").joinpath("penguins.xlsx"))
-    #logger.info(f"Reading data from {p}")
+    p = pathlib.Path(__file__).parent.joinpath("data").joinpath("penguins.xlsx")
+    # logger.info(f"Reading data from {p}")
     original_df = pd.read_excel(p)
     total_count = len(original_df)
 
@@ -48,7 +48,7 @@ def get_penguins_server_functions(input, output, session):
         This is the only way to set a reactive value (after initialization).
         It doesn't need a name, because no one calls it directly."""
 
-        #logger.info("UI inputs changed. Updating penguins reactive df")
+        # logger.info("UI inputs changed. Updating penguins reactive df")
 
         df = original_df.copy()
 
@@ -90,10 +90,10 @@ def get_penguins_server_functions(input, output, session):
     @output
     @render.text
     def penguins_record_count_string():
-        #logger.debug("Triggered: penguins_filter_record_count_string")
+        # logger.debug("Triggered: penguins_filter_record_count_string")
         filtered_count = len(reactive_df.get())
         message = f"Showing {filtered_count} of {total_count} records"
-        #logger.debug(f"filter message: {message}")
+        # logger.debug(f"filter message: {message}")
         return message
 
     @output

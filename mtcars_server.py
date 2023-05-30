@@ -25,7 +25,7 @@ def get_mtcars_server_functions(input, output, session):
     """Define functions to create UI outputs."""
 
     p = pathlib.Path(__file__).parent.joinpath("data").joinpath("mtcars.csv")
-    #logger.info(f"Reading data from {p}")
+    # logger.info(f"Reading data from {p}")
     original_df = pd.read_csv(p)
     total_count = len(original_df)
 
@@ -59,7 +59,7 @@ def get_mtcars_server_functions(input, output, session):
         filtered_df = reactive_df.get()
         filtered_count = len(filtered_df)
         message = f"Showing {filtered_count} of {total_count} records"
-        #logger.debug(f"filter message: {message}")
+        # logger.debug(f"filter message: {message}")
         return message
 
     @output
