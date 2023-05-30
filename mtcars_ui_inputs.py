@@ -1,16 +1,15 @@
 """
-Purpose: Provide user interaction options for the MT Cars dataset.
+Purpose: Provide user interaction options for MT Cars dataset.
 
 IDs must be unique. They are capitalized in this app for clarity (not typical).
 The IDs are case-sensitive and must match the server code exactly.
-
-We prefaced IDs with the dataset name to avoid naming conflicts.
+Preface IDs with the dataset name to avoid naming conflicts.
 
 """
 from shiny import ui
 
 
-def get_mtcars_sidebar():
+def get_mtcars_inputs():
     return ui.panel_sidebar(
         ui.h2("MT Cars Interaction"),
         ui.tags.hr(),
@@ -41,6 +40,6 @@ def get_mtcars_sidebar():
             ui.output_table("cars_table"),
         ),
         ui.tags.hr(),
-        ui.p("Please be patient. The charts may take a few seconds to load."),
+        ui.p("🕒 Please be patient. Outputs may take a few seconds to load."),
         ui.tags.hr(),
     )

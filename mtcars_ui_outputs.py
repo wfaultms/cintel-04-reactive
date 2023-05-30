@@ -1,11 +1,14 @@
 """
-Purpose: Display ouput for the MT Cars dataset.
+Purpose: Display output for MT Cars dataset.
+
+@imports shiny.ui as ui
+@imports shinywidgets.output_widget for interactive charts
 """
 from shiny import ui
 from shinywidgets import output_widget
 
 
-def get_mtcars_main():
+def get_mtcars_outputs():
     return ui.panel_main(
         ui.h2("Main Panel with Reactive Output"),
         ui.tags.hr(),

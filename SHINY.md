@@ -53,24 +53,14 @@ When VS Code asks if it should add the new virtual environment, click yes.
 - Activate it on Windows: `.venv\Scripts\activate`
 - Activate it on macOS/Linux `source .venv/bin/`
 
-## Install Libaries into Virtual Environment
+## Install Libraries into Virtual Environment
 
 This gives a good selection of options. You only need to install the ones you use.
 
 ```shell
-python -m pip install --upgrade pip wheel shiny shinyswatch 
-python -m pip install --upgrade pandas openpyxl jinja2 matplotlib seaborn plotnine
-python -m pip install --upgrade shinywidgets plotly holoviews panel hvplot ipyleaflet
-python -m pip install --upgrade jupyter_bokeh 
-
-```
-
-OR List your requirements in requirements.txt and install them all at once.
-
-```shell
+python -m pip install --upgrade pip wheel
 python -m pip install --upgrade -r requirements.txt
 ```
-
 
 ## Run the App
 
@@ -81,7 +71,7 @@ shiny run --reload app.py
 ```
 
 Open the app by following the instructions provided in the terminal. 
-For example, try CRTL CLICK (at the same time) on the URL displayed (http://127.0.0.1:8000).
+For example, try CTRL CLICK (at the same time) on the URL displayed (http://127.0.0.1:8000).
 
 Hit CTRL c (at the same time) to quit the app. 
 If it won't stop, close the terminal window.
@@ -89,4 +79,13 @@ Reopen the terminal window and be sure the virtual environment is activated
 before running the app again.
 
 
+-----
 
+## ⚠️ Delete Hosted App Before Pushing to GitHub
+
+Reminder: The GitHub action deploy.yml may not automatically delete an existing app from shinyapps.io so we can redeploy.
+
+Before pushing to GitHub, login to [shinyapps.io](https://www.shinyapps.io/) and view the list of applications. 
+
+- First archive the app.
+- Then delete the archived app.

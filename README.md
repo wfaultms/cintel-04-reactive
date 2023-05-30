@@ -1,27 +1,10 @@
-# Continuous Intelligence and Interactive Analytics - Initial App
+# Continuous Intelligence and Interactive Analytics - Reactive Apps
 
+- Interactive app: [cintel-04-reactive](https://denisecase.shinyapps.io/cintel-04-reactive/)
 - Repository: [cintel-04-reactive](https://github.com/denisecase/cintel-04-reactive)
-- Website: [cintel-04-reactive](https://denisecase.github.io/cintel-04-reactive/)
 - Author: [Denise Case](https://github.com/denisecase)
 
-
-Note: 🚀 Rocket Tips are for learners who want to go beyond the basics. 
-They are NOT required but can improve our workflow, increase productivity, and make things more enjoyable.
 -----
-
-
-## Prerequisites
-
-You'll need the tools installed in 
-
-- [cintel-01-getting-started](https://github.com/denisecase/cintel-01-getting-started)
-- [cintel-02-app](https://github.com/denisecase/cintel-02-app)
-- [cintel-03-data](https://github.com/denisecase/cintel-03-data)
-
-## Sign Up for shinyapps.io (Free Account)
-
-Sign up for a free account on shinyapps.io. 
-I sign in via GitHub for convenience.
 
 ## Copy This Repository
 
@@ -41,7 +24,7 @@ Copy this starter repository into your own GitHub account by clicking the 'Fork'
 
 ### Make Changes in VS Code
 
-With your respository folder open in VS Code:
+With your repository folder open in VS Code:
 
 1. Click on this README.md file for editing.
 1. Update the README.md file by changing your name in the author link above.
@@ -65,6 +48,14 @@ Details matter - check spelling, capitalization, plurals, spacing when things do
 - [Seaborn](https://seaborn.pydata.org/)
 - [Plotly](https://plotly.com/python/)
 - [Bokeh](https://docs.bokeh.org/en/latest/index.html)
-
-
 - [Seaborn Flights Dataset](https://seaborn.pydata.org/tutorial/data_structure.html)
+
+-----
+
+![Flights](./images/01-flights.PNG)
+
+![MT Cars](./images/02-mtcars.PNG)
+
+![Penguins](./images/03-penguins.PNG)
+
+![Relationships](./images/04-relationships.PNG)

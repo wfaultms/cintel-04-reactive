@@ -18,11 +18,11 @@ except ImportError:
     logger.warn("Could not import bokeh")
 
 
-def get_relationships_sidebar():
+def get_relationships_inputs():
     return bokeh_dependency, ui.panel_sidebar(
         ui.h2("Relationships Interaction"),
         ui.input_switch("RELATIONSHIPS_SHOW_TOGGLE", "Show Charts", value=True),
         ui.tags.hr(),
-        ui.p("Please be patient. The charts may take a few seconds to load."),
+        ui.p("🕒 Please be patient. Outputs may take a few seconds to load."),
         ui.tags.hr(),
     )

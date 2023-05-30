@@ -1,11 +1,10 @@
 """ 
-Purpose: Provide reactive output for the Flights dataset.
+Purpose: Provide reactive output for Flights dataset.
 
-Use inputs from the UI Sidebar to filter the dataset.
+- Use inputs from the UI Sidebar to filter the dataset.
+- Update reactive outputs in the UI Main Panel.
 
-Update ouputs in the UI Main Panel.
-
-Matching the IDs in the UI Sidebar and function/ouput names in the UI Main Panel
+Matching the IDs in the UI Sidebar and function/output names in the UI Main Panel
 to this server code is critical. They are case sensitive and must match exactly.
 
 This example uses dates - arguably the most complex UI input type.
@@ -14,21 +13,28 @@ This example uses dates - arguably the most complex UI input type.
  - This example is a good starting point - there are many examples online.
 
 """
-from shiny import *
+import pathlib
+from shiny import render, reactive
 import pandas as pd
 from shinywidgets import render_widget
 import plotly.express as px
-import plotly.graph_objs as go
 
 from util_logger import setup_logger
+
 logger, logname = setup_logger(__name__)
 
-def get_flights_server_functions(input, output, session):
 
-    original_df = pd.read_excel("flights.xlsx")
+def get_flights_server_functions(input, output, session):
+    """Define functions to create UI outputs."""
+
+    p = pathlib.Path(__file__).parent.joinpath("data").joinpath("flights.xlsx")
+    #logger.info(f"Reading data from {p}")
+    original_df = pd.read_excel(p)
 
     # create new field with year as a string and month together
-    original_df['year-mon'] = original_df['year'].astype(str) + '-' + original_df['month']
+    original_df["year-mon"] = (
+        original_df["year"].astype(str) + "-" + original_df["month"]
+    )
     total_count = len(original_df)
 
     reactive_df = reactive.Value()
@@ -36,10 +42,10 @@ def get_flights_server_functions(input, output, session):
     @reactive.Effect
     @reactive.event(input.FLIGHTS_DATE_RANGE)
     def _():
-        ''' Reactive effect to update the filtered dataframe when inputs change.
-        It doesn't need a name, because no one calls it directly.'''
+        """Reactive effect to update the filtered dataframe when inputs change.
+        It doesn't need a name, because no one calls it directly."""
 
-        logger.info("UI inputs changed. Updating flights reactive df")
+        #logger.info("UI inputs changed. Updating flights reactive df")
 
         df = original_df.copy()
 
@@ -60,17 +66,16 @@ def get_flights_server_functions(input, output, session):
         input_max = input_range[1]
         df = df[(df["Date"] >= input_min) & (df["Date"] <= input_max)]
 
-        #logger.debug(f"filtered flights df: {df}")
+        # logger.debug(f"filtered flights df: {df}")
         reactive_df.set(df)
 
-    
     @output
     @render.text
     def flights_record_count_string():
-        logger.debug("Triggered: flights_filter_record_count_string") 
+        #logger.debug("Triggered: flights_filter_record_count_string")
         filtered_count = len(reactive_df.get())
         message = f"Showing {filtered_count} of {total_count} records"
-        logger.debug(f"filter message: {message}")
+        #logger.debug(f"filter message: {message}")
         return message
 
     @output
@@ -84,26 +89,29 @@ def get_flights_server_functions(input, output, session):
     @render_widget
     def flights_output_widget1():
         df = reactive_df.get()
-        px_plot = px.scatter(df, 
-            x="year", 
-            y="passengers", 
+        px_plot = px.scatter(
+            df,
+            x="year",
+            y="passengers",
             title="Flights Scatter Chart (Plotly Express)",
-            color="month"
-            )
+            color="month",
+        )
         return px_plot
-        
+
     @output
     @render_widget
     def flights_output_widget2():
         df = reactive_df.get()
 
-        px_plot = px.line(df,
-                  x="year-mon", 
-                  y="passengers",
-                  title="Flights Line Chart (Plotly Express)",
-                  labels={"year-mon": "Year-Mon", "passengers": "Passengers"})
+        px_plot = px.line(
+            df,
+            x="year-mon",
+            y="passengers",
+            title="Flights Line Chart (Plotly Express)",
+            labels={"year-mon": "Year-Mon", "passengers": "Passengers"},
+        )
         return px_plot
-        
+
     # return a list of function names for use in reactive outputs
     return [
         flights_record_count_string,

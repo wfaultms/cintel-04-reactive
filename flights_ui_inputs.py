@@ -1,10 +1,9 @@
 """
-Purpose: Provide user interaction options for the Flights dataset.
+Purpose: Provide user interaction options for Flights dataset.
 
 IDs must be unique. They are capitalized in this app for clarity (not typical).
 The IDs are case-sensitive and must match the server code exactly.
-
-We prefaced IDs with the dataset name to avoid naming conflicts.
+Preface IDs with the dataset name to avoid naming conflicts.
 
 See
 Example date range at https://shinylive.io/py/examples/#date-range-input
@@ -16,7 +15,7 @@ from datetime import date
 from shiny import ui
 
 
-def get_flights_sidebar():
+def get_flights_inputs():
     return ui.panel_sidebar(
         ui.h2("Flights Interaction"),
         ui.tags.hr(),
@@ -27,6 +26,6 @@ def get_flights_sidebar():
             end=date(1960, 12, 31),
         ),
         ui.tags.hr(),
-        ui.p("Please be patient. The charts may take a few seconds to load."),
+        ui.p("🕒 Please be patient. Outputs may take a few seconds to load."),
         ui.tags.hr(),
     )

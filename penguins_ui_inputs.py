@@ -1,21 +1,19 @@
 """
 Purpose: Provide user interaction options for the Penguins dataset.
 
-Checkboxes should be independent of each other.
-
-Radio buttons should be mutually exclusive.
+ - Choose checkboxes when the options are independent of each other.
+ - Choose radio buttons when a set of options are mutually exclusive.
 
 IDs must be unique. They are capitalized in this app for clarity (not typical).
 The IDs are case-sensitive and must match the server code exactly.
-
-We prefaced IDs with the dataset name to avoid naming conflicts.
+Preface IDs with the dataset name to avoid naming conflicts.
 
 """
 
 from shiny import ui
 
 
-def get_penguins_sidebar():
+def get_penguins_inputs():
     return ui.panel_sidebar(
         ui.h2("Penguins Interaction"),
         ui.tags.hr(),
@@ -37,6 +35,6 @@ def get_penguins_sidebar():
             selected="a",
         ),
         ui.tags.hr(),
-        ui.p("Please be patient. The charts may take a few seconds to load."),
+        ui.p("🕒 Please be patient. Outputs may take a few seconds to load."),
         ui.tags.hr(),
     )
