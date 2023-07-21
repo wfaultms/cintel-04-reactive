@@ -1,0 +1,8 @@
+NOTES AND URL
+Shiny account: wfault-apps 
+
+Shiny token 
+
+rsconnect::setAccountInfo(name='wfault-apps', 
+token='6AF078AE55A34BE7CF3156B57A0861A0', 
+secret='Icaq2L7T5ovJwV78Xx0IYrjpfcERM3FTCXqtlLNd')

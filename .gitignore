@@ -7,8 +7,15 @@
 .vscode/
 
 # Python Virtual environment folders
-.venv/
+# Changed to reflect the local folder
+.venv_*/
 venv/
+
+# Misc files for testing and notes
+test*.py
+test*.ipynb 
+URL-Notes.txt
+
 
 # Jupyter Notebook
 .ipynb_checkpoints
