@@ -9,6 +9,7 @@ Each Shiny app has two parts:
 - a server function that provides the logic for the app (similar to JS in a web page).
 
 """
+# Change only for deployment.
 from shiny import App, ui
 import shinyswatch
 
