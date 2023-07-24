@@ -1,7 +1,7 @@
 # Continuous Intelligence and Interactive Analytics - Reactive Apps
 
 ### Bill Ault
-### 44-630
+### 44-630 
 ### Summer-2/2023
 
 - Interactive app: [cintel-04-reactive](https://wfault-apps.shinyapps.io/cintel-04-reactive/)
